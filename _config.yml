@@ -27,9 +27,9 @@ github_username:  lpicanco
 
 # Build settings
 markdown: kramdown
-# theme: minima
+theme: minima
 # theme: minimal-mistakes-jekyll
-theme: jekyll-theme-cayman-blog
+# theme: jekyll-theme-cayman-blog
 plugins:
   - jekyll-feed
 

@@ -1,0 +1,95 @@
+---
+layout: post
+status: publish
+published: true
+title: Indexando e buscando documentos com Lucene.Net e LINQ
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 6411
+wordpress_url: http://www.luizpicanco.com/?p=6411
+date: '2013-10-28 20:57:50 -0200'
+date_gmt: '2013-10-28 23:57:50 -0200'
+categories:
+- ".Net"
+- C#
+tags:
+- code
+- linq
+- lucene
+comments: []
+---
+<p>C&oacute;digo de exemplo:</p>
+<pre class="prettyprint"><code class="language-csharp">
+using System;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using Lucene.Net.Store;
+using Lucene.Net.Linq;
+using Lucene.Net.Linq.Mapping;
+using Lucene.Net.Analysis.Standard;
+
+namespace LuceneTests
+{
+    [TestClass]
+    public class LuceneTest
+    {
+        [TestMethod]
+        public void TestIndex()
+        {
+            // Configura o Lucene.
+            var luceneDir = Path.Combine(System.Environment.CurrentDirectory, 
+                "lucene_index");
+
+            if (!System.IO.Directory.Exists(luceneDir))
+            {
+                lock (this)
+                {
+                    System.IO.Directory.CreateDirectory(luceneDir);
+                }
+            }
+
+            var directory = FSDirectory.Open(new DirectoryInfo(luceneDir));
+            var provider = new LuceneDataProvider(directory, 
+                Lucene.Net.Util.Version.LUCENE_30);
+
+            // Indexa os Documentos.
+            using (var session = provider.OpenSession<Document>())
+            {
+                session.Add(new Document()
+                {
+                    Title = "Hello",
+                    Content = "Hello Lucene!"
+                });
+
+                session.Add(new Document()
+                {
+                    Title = "Hi",
+                    Content = "Hi, Lucene!"
+                });
+            }
+
+
+            // Busca os documentos que cont&eacute;m a palavra "Hello" no t&iacute;tulo.
+            var items = provider.AsQueryable<Document>()
+                .Where(l => l.Title.Contains("Hello"));
+
+            Assert.AreNotEqual(items.Count(), 0);
+        }
+    }
+    class Document
+    {
+        [Field(Analyzer = typeof(StandardAnalyzer))]
+        public String Title { get; set; }
+
+        [Field(Analyzer = typeof(StandardAnalyzer))]
+        public String Content { get; set; }
+    }
+}
+
+</code></pre>

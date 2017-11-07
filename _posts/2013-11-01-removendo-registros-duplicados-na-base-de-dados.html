@@ -1,0 +1,37 @@
+---
+layout: post
+status: publish
+published: true
+title: Removendo registros duplicados na base de dados
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 6425
+wordpress_url: http://www.luizpicanco.com/?p=6425
+date: '2013-11-01 22:18:16 -0200'
+date_gmt: '2013-11-02 01:18:16 -0200'
+categories:
+- SQL
+tags:
+- exemplos
+- script
+- sql
+comments: []
+---
+<p><a href="http://104.131.7.34/wp-content/uploads/2013/11/duplicate-content.jpg"><img src="http://104.131.7.34/wp-content/uploads/2013/11/duplicate-content-300x225.jpg" alt="duplicate-content" width="300" height="225" class="aligncenter size-medium wp-image-6429" /></a><br />
+Script SQL simples para remover os registros duplicados de uma tabela:</p>
+<pre class="prettyprint"><code class="language-sql">
+DELETE FROM Links
+WHERE ID NOT IN
+(
+	SELECT MAX(ID)
+	FROM Links
+	GROUP BY url
+)
+</code>
+</pre>
+<blockquote><p>Removendo os registros com urls duplicadas da tabela Links. </p></blockquote>

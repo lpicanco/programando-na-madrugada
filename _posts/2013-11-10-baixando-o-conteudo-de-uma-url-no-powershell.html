@@ -1,0 +1,30 @@
+---
+layout: post
+status: publish
+published: true
+title: Baixando o conte&uacute;do de uma URL no PowerShell
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 6432
+wordpress_url: http://www.luizpicanco.com/?p=6432
+date: '2013-11-10 19:46:18 -0200'
+date_gmt: '2013-11-10 22:46:18 -0200'
+categories:
+- PowerShell
+tags:
+- powershell
+comments: []
+---
+<p>Hoje precisei programar um job no SQL Server para baixar um arquivo de um site usando o powershell.</p>
+<p>O script que eu utilizei foi esse:</p>
+<pre class="prettyprint"><code class="csharp">
+$fileName = "c:tempfile.zip"
+$webclient = New-Object System.Net.WebClient
+$webclient.DownloadFile("http://siteparabaixararquivo/arquivo",$fileName)
+</code></pre>
+<p>Um script muito simples que as vezes poder ser &uacute;til.</p>

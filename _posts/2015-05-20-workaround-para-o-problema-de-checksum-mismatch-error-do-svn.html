@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: Workaround para o problema de checksum mismatch error do SVN
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 6452
+wordpress_url: http://www.luizpicanco.com/?p=6452
+date: '2015-05-20 10:34:55 -0300'
+date_gmt: '2015-05-20 13:34:55 -0300'
+categories:
+- SVN
+tags:
+- dicas
+- svn
+comments: []
+---
+<p>Existem casos onde os metadados de uma working copy do SVN fica corrompida e durante o commit, recebemos a seguinte mensagem:</p>
+<pre class="prettyprint"><code class="bash">
+$ svn commit -m "Some update"
+svn: Checksum mismatch for '/home/me/dev/bionshare/FileServer.java';
+expected: '77d5a3ce97ccff226dcdaaf07d5721f5',
+actual: '67d76735a0467d91c5ff733f98de451d'
+</code></pre>
+<p>Existem algumas formas de resolver esse problema, como renomear o arquivo e depois restaurar o nome original. A forma mais r&aacute;pida que eu encontrei foi essa:</p>
+<pre class="prettyprint"><code class="bash">
+$ svn update --set-depth empty
+D         FileServer.java
+Updated to revision 6544.
+
+$ svn update --set-depth infinity
+A         FileServer.java
+Updated to revision 6544.
+</code>
+</pre>
+<p>Esses comandos restauram os dados de cache do arquivo com as informa&ccedil;&otilde;es do reposit&oacute;rio. </p>

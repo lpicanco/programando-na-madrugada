@@ -1,0 +1,84 @@
+---
+layout: post
+status: publish
+published: true
+title: Setando a propriedade selectedItem de uma ComboBox no Flex
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 53
+wordpress_url: http://www.luizantonio.com/2007/06/04/private-setando-a-propriedade-selecteditem-de-uma-combobox-no-flex/
+date: '2007-06-04 16:26:40 -0300'
+date_gmt: '2007-06-04 19:26:40 -0300'
+categories:
+- ActionScript
+- Flex
+- RIA
+tags: []
+comments:
+- id: 275
+  author: Kerrie Crape
+  author_email: Kerrie.Peacemaker@gmail.com
+  author_url: http://www.detroit-accident-lawyer.com
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'jhette007 Pacquiao: The Pros and Cons of His Six Likely Opponents: Now
+    that Manny Pacquiao has put the likely last nail in '
+- id: 276
+  author: Kerrie Clarendon
+  author_email: Kerrie.Gielow@gmail.com
+  author_url: http://www.mobile-phone-deals.mobi
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'jesus you look horrific Cheers random dude '
+- id: 277
+  author: Kerrie Mackesy
+  author_email: Kerrie.Gaukroger@gmail.com
+  author_url: http://www.mortgageequitycalculator.info
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Extremely educating blog bookmarked the internet site in interest to see
+    much more '
+- id: 278
+  author: Eldon Stierwalt
+  author_email: Neemann67@gmail.com
+  author_url: http://thebuzzear.thegreatideasstore.com/new/?p=5925
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Thanks for the interesting blog update. I was trying to subscribe to your
+    RSS feed, but I wasn''t able to get it working with Google Reader. Is there something
+    wrong, or is it my fault (I''m a bit of a technophobe!)? '
+- id: 279
+  author: chanel australia
+  author_email: Cnivma@gmail.com
+  author_url: http://cheaphandbagsaustralia111.info
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'There isn''t any pity within buying reproduction Chanel purses since they''re
+    not really associated with poor<a href="http://forum.saskatoonultimate.org/viewtopic.php?f=5&t=194742&p=267852#p267852"
+    rel="nofollow">discount chanel bags sale</a> The logo design is synonymous with
+    bullish school room and fad feel style '
+---
+<p class="entry">Fala pessoal, Estava fazendo um c&oacute;digo para seleciononar automaticamente uma combo box em fun&ccedil;&atilde;o do registro selecionado no data grid do flex.</p>
+<p>O m&eacute;todo recebe dois par&acirc;metros: A combo box e o ID do registro selecionado.</p>
+<p>O m&eacute;todo segue abaixo:</p>
+<pre><code>public static function SelectComboBox(comboBox: ComboBox, 
+	id: int): void {
+
+    var dataProvider: ArrayCollection = 
+	ArrayCollection(comboBox.dataProvider);
+
+    var selectedIndex: int = 0;
+
+    for (var i:int = 0; i < dataProvider.length; i++) {
+        if (dataProvider[i].id == id) {
+            selectedIndex = i;
+            break;
+        }
+    }
+    comboBox.selectedIndex = i;
+} </code></pre>

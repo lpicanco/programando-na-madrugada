@@ -1,0 +1,52 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Erro na instala&Atilde;?&Acirc;&sect;&Atilde;?&Acirc;&pound;o de uma Ruby
+  Gem: no such file to load -- mkmf'
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 98
+wordpress_url: http://www.luizpicanco.com/?p=98
+date: '2009-05-06 14:36:18 -0300'
+date_gmt: '2009-05-06 17:36:18 -0300'
+categories:
+- Ruby
+tags: []
+comments:
+- id: 334
+  author: greatest soft development company
+  author_email: Gandarillia4017@gmail.com
+  author_url: http://www.webcraftsoftware.com/
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Being a parent Now i''m consequently happy to have determined this approach   blog.
+    My partner and i advised it again that will a teenager kid.  He is certainly crazy
+    about your content.  You difficult task them by means of just about every guide.
+    He observed countless matters, using the accessory of how it''s like to have an
+    incredible issuing mindset to let individuals absolutely fully understand a lot
+    of advanced issue spots. Owing to this blog he or she lowered the amount of time
+    invested using several home pc matches.   As a result, I can thanks for this.  Hope
+    you continue concerning undertaking what you may are actually. '
+---
+<p>Se ao instalar uma gem voc&ecirc; se deparou com esse erro:</p>
+<pre><code>Building native extensions.  This could take a while...
+ERROR:  While executing gem ... (Gem::Installer::ExtensionBuildError)
+    ERROR: Failed to build gem native extension.
+
+ruby extconf.rb install mechanize
+extconf.rb:1:in `require': no such file to load -- mkmf (LoadError)
+</code></pre>
+<p><span style="font-family: -webkit-monospace; line-height: 18px; font-size: 12px; white-space: pre;"> from extconf.rb:1</span></p>
+<p>O problema &eacute; que o mkmf n&atilde;o foi encontrado. Ele se encontra no pacote ruby-dev. Para instal&aacute;-lo baixa executar o seguinte comando:</p>
+<pre><code>sudo apt-get install ruby-dev
+</code></pre>
+<pre><span style="font-family: -webkit-monospace;">
+</span></pre>
+<pre><span style="font-family: -webkit-monospace;">
+</span></pre>

@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Obtendo as Properties pela ordem de declara&Atilde;?&Acirc;&sect;&Atilde;?&Acirc;&pound;o
+  no C#
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 106
+wordpress_url: http://www.luizpicanco.com/?p=106
+date: '2009-08-18 18:07:25 -0300'
+date_gmt: '2009-08-18 21:07:25 -0300'
+categories:
+- ".Net"
+tags:
+- ".Net"
+- C#
+- metadata
+- reflection
+comments: []
+---
+<p>Em alguns momentos, pode ser necess&aacute;rio obter a lista de properties de um objeto. Um jeito simples de fazer isso &eacute;:</p>
+<pre lang="csharp" line="1">private IEnumerable<PropertyInfo> GetProperties(Type type)
+{
+    return type.GetProperties();
+}</pre>
+<p>O problema &eacute; que, segundo a Microsoft, a ordem em que as properties s&atilde;o retornadas n&atilde;o &eacute; garantido:</p>
+<blockquote><p>The GetProperties method does not return properties in a particular order, such as alphabetical or declaration order. Your code must not depend on the order in which properties are returned, because that order varies.</p></blockquote>
+<p>Uma solu&ccedil;&atilde;o para resolver esse problema &eacute; ordenar a lista de properties pela property&Atilde;?&Acirc;&nbsp;MetadataToken.</p>
+<p>O c&oacute;digo ent&atilde;o, ficaria assim:</p>
+<pre lang="csharp" line="1">private IEnumerable<PropertyInfo> GetProperties(Type type)
+{
+    return type.GetProperties().OrderBy(p => p.MetadataToken);
+}</pre>
+<p>Se a inten&ccedil;&atilde;o for obter as properties na ordem inversa, o c&oacute;digo ficaria assim:</p>
+<pre lang="csharp" line="1">private IEnumerable<PropertyInfo> GetPropertiesDescending(Type type)
+{
+    return type.GetProperties().OrderByDescending(p => p.MetadataToken);
+}</pre>
+<p>O ideal &eacute; que o seu c&oacute;digo n&atilde;o dependa da ordem dos membros para executar, mas em alguns casos, como gera&ccedil;&atilde;o autom&aacute;tica de c&oacute;digo, isso pode ser &uacute;til.</p>

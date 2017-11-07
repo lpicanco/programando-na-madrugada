@@ -1,0 +1,118 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Processing Labs: Game Of Life'
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 151
+wordpress_url: http://www.luizpicanco.com/?p=151
+date: '2010-05-25 23:37:00 -0300'
+date_gmt: '2010-05-26 02:37:00 -0300'
+categories:
+- Processing
+- Javascript
+tags:
+- game of life
+- Javascript
+- Processing
+comments:
+- id: 408
+  author: confederate flags for sale
+  author_email: deborah_faris@msn.com
+  author_url: http://www.flagdiscounter.com/products/rebel-flags
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'I  appreciate your work , thanks  for all the  informative   content . '
+- id: 409
+  author: praca statystyk
+  author_email: Kartye@rady24.waw.pl
+  author_url: http://www.praca-statystyk.ogloszenia-praca.rybnik.pl
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: '[...] common, lobular carcinoma occurs in separate locations within a
+    single breast.  There are other rare types of breast cancers, such as inflammatory
+    breast cancer and Paget"&acirc;?&cent;s disease, which begin in the breast as
+    [...] '
+- id: 410
+  author: miss marcelina zawadzka
+  author_email: Falzone@rady24.waw.pl
+  author_url: http://www.kosmetyka.edu.pl/n142-Nasza-studentka-najpiekniejsza-Polka.html
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'We"&acirc;?&cent;re still waving the smelling salts under Mom"&acirc;?&cent;s
+    nose over this one. Every time she comes to and realizes what you proles are up
+    to using a [hushed whisper] prophylactic [/hush] in her so-called likeness, she
+    whails again, starts sobbing and promptly faints. '
+---
+<p>Comecei a estudar <a href="http://processing.org">processing</a>. Processing &eacute; uma linguagem de programa&ccedil;&atilde;o para trabalhar com visualiza&ccedil;&atilde;o de dados. <a href="http://processingjs.org">Processing.js</a> &eacute; um porte da linguagem para Javascript.</p>
+<p>Como primeiro experimento, o famoso <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Game of Life</a>.</p>
+<p><script type="application/processing"><br />
+int sx, sy;<br />
+float density = 0.5;<br />
+int[][][] world;</p>
+<p>void setup()<br />
+{<br />
+  size(100, 100);<br />
+  frameRate(15);<br />
+  sx = width;<br />
+  sy = height;<br />
+  world = new int[sx][sy][2];<br />
+  stroke(255); </p>
+<p>  // Set random cells to 'on'<br />
+  for (int i = 0; i < sx * sy * density; i++) {<br />
+    world[(int)random(sx)][(int)random(sy)][1] = 1;<br />
+  }<br />
+} </p>
+<p>void draw()<br />
+{<br />
+  background(0); </p>
+<p>  // Drawing and update cycle<br />
+  for (int x = 0; x < sx; x=x+1) {<br />
+    for (int y = 0; y < sy; y=y+1) {<br />
+      //if (world[x][y][1] == 1) </p>
+<p>      if ((world[x][y][1] == 1) || (world[x][y][1] == 0 && world[x][y][0] == 1))<br />
+      {<br />
+        world[x][y][0] = 1;<br />
+        point(x, y);<br />
+      }<br />
+      if (world[x][y][1] == -1)<br />
+      {<br />
+        world[x][y][0] = 0;<br />
+      }<br />
+      world[x][y][1] = 0;<br />
+    }<br />
+  }<br />
+  // Birth and death cycle<br />
+  for (int x = 0; x < sx; x=x+1) {<br />
+    for (int y = 0; y < sy; y=y+1) {<br />
+      int count = neighbors(x, y);<br />
+      if (count == 3 && world[x][y][0] == 0)<br />
+      {<br />
+        world[x][y][1] = 1;<br />
+      }<br />
+      if ((count < 2 || count > 3) && world[x][y][0] == 1)<br />
+     {<br />
+        world[x][y][1] = -1;<br />
+      }<br />
+    }<br />
+  }<br />
+} </p>
+<p>// Count the number of adjacent cells 'on'<br />
+int neighbors(int x, int y)<br />
+{<br />
+  return world[(x + 1) % sx][y][0] +<br />
+         world[x][(y + 1) % sy][0] +<br />
+         world[(x + sx - 1) % sx][y][0] +<br />
+         world[x][(y + sy - 1) % sy][0] +<br />
+         world[(x + 1) % sx][(y + 1) % sy][0] +<br />
+         world[(x + sx - 1) % sx][(y + 1) % sy][0] +<br />
+         world[(x + sx - 1) % sx][(y + sy - 1) % sy][0] +<br />
+         world[(x + 1) % sx][(y + sy - 1) % sy][0];<br />
+}<br />
+</script></p>

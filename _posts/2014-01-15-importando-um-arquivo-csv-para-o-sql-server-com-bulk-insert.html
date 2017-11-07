@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Importando um arquivo CSV para o SQL Server com BULK INSERT
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 6437
+wordpress_url: http://www.luizpicanco.com/?p=6437
+date: '2014-01-15 21:08:29 -0200'
+date_gmt: '2014-01-16 00:08:29 -0200'
+categories:
+- SQL
+tags:
+- sql server
+comments: []
+---
+<p>Como importar um arquivo CSV para o SQL Server com BULK INSERT</p>
+<pre class="prettyprint"><code class="sql">
+BULK
+INSERT CLIENTE
+FROM 'F:BULKDATACLIENTE.txt'
+WITH
+(
+FIRSTROW = 2,   -- Ignora o header
+FIELDTERMINATOR = ',',  
+ROWTERMINATOR = 'n'
+)
+GO
+</code></pre>

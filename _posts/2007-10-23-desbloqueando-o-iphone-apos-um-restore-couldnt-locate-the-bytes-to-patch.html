@@ -1,0 +1,93 @@
+---
+layout: post
+status: publish
+published: true
+title: Desbloqueando o iPhone ap&Atilde;?&Acirc;&sup3;s um Restore - Couldn't locate
+  the bytes to patch
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 68
+wordpress_url: http://www.luizantonio.com/2007/10/23/desbloqueando-o-iphone-apos-um-restore-couldnt-locate-the-bytes-to-patch/
+date: '2007-10-23 19:55:48 -0200'
+date_gmt: '2007-10-23 22:55:48 -0200'
+categories:
+- Hacking
+- iPhone
+tags: []
+comments:
+- id: 307
+  author: Iphone | Apple | Mac Blog &raquo; Desbloqueando o iPhone ap&Atilde;?&Acirc;&sup3;s
+    um Restore - Couldn&Atilde;&cent;&acirc;?&not;&acirc;?&cent;t locate the bytes
+    to patch
+  author_email: ''
+  author_url: http://blog.i-iphone.com/?p=11910
+  date: '2007-10-23 20:19:25 -0200'
+  date_gmt: '2007-10-23 23:19:25 -0200'
+  content: "[...] Programando na Madrugada added an interesting post on Desbloqueando
+    o iPhone ap&Atilde;?&Acirc;&sup3;s um Restore - Couldn&acirc;&acirc;?&not;&acirc;?&cent;t
+    locate the bytes to patchHere&#8217;s a small excerpt [...]"
+- id: 308
+  author: Humbertob
+  author_email: morenobatalha@gmail.com
+  author_url: ''
+  date: '2007-10-28 14:36:57 -0200'
+  date_gmt: '2007-10-28 17:36:57 -0200'
+  content: |-
+    Fiz todo o procedimento de downgrade, depois iBrickk, unlock e depois rodei o anySIM... ao final apareceu a mensagem.... "patched"... pedindo para tentar mais tarde.... tentei e nada...
+
+    Depois tentei este tutorial bbupdater.... e tamb&eacute;m n&atilde;o obtive sucesso....
+
+    O iPhone j&aacute; encontra-se ativado, funcionando, inclusive youtube... por&eacute;m n&atilde;o identifica o SIMCard...
+
+    O que posso fazer..?
+- id: 309
+  author: Luiz Antonio Pican&Atilde;?&Acirc;&sect;o
+  author_email: lpicanco@gmail.com
+  author_url: http://www.luizantonio.com
+  date: '2007-10-28 21:34:01 -0200'
+  date_gmt: '2007-10-29 00:34:01 -0200'
+  content: Qual a vers&atilde;o do firmware que voc&ecirc; est&aacute; utilizando
+    ? Voc&ecirc; j&aacute; tinha tentado desbloquear ele antes ?
+- id: 310
+  author: Humbertob
+  author_email: morenobatalha@gmail.com
+  author_url: ''
+  date: '2007-10-31 00:28:45 -0200'
+  date_gmt: '2007-10-31 03:28:45 -0200'
+  content: fiz o Downgrade para 1.0.2. N&Atilde;?&Atilde;?&Acirc;&pound;o tinha feito
+    nenhum procedimento antes... Era virgem
+- id: 312
+  author: John810
+  author_email: chjiyi@gmail.com
+  author_url: http://chjiyi.com/
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Aloha! '
+---
+<p>Ap&oacute;s ter instalado v&aacute;rias aplica&ccedil;&otilde;es no meu iPhone, a aplica&ccedil;&atilde;o de e-mail parou de funcionar, com isso, resolvi restaur&aacute;-lo pelo iTunes para realizar o processo de desbloqueio novamente.<br />
+Quando fui rodar o anySim, recebi a seguinte mensagem: couldn't locate the bytes to patch<br />
+O problema &eacute; que como o baseband j&aacute; estava hackeado o anySim n&atilde;o consegui hackea-lo novamente. Para resolver o problema tive que recorrer ao bbupdater</p>
+<p>Segue abaixo a solu&ccedil;&atilde;o para o problema:<br />
+1 - Voc&ecirc; vai precisar dos seguintes arquivos (Download <a href="http://rs157.rapidshare.com/files/55991876/314_bbfirmware.zip">aqui</a>):</p>
+<li>314.eep</li>
+<li>314.fls</li>
+<li>bbupdater</li>
+<p>2 - Com o iBrickr, crie um diret&oacute;rio para guardar esses arquivos (Ex.: restore) e copie os 3 arquivos para l&aacute;<br />
+3 - Pelo iBrickr, instale a aplica&ccedil;&atilde;o MobileTerminal<br />
+4 - No iPhone, execute o MobileTerminal<br />
+5 - Digite os seguintes comandos:</p>
+<p><code><br />
+cd /restore </p>
+<p>launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist</p>
+<p>chmod +x bbupdater</p>
+<p>bbupdater -f *.fls -e *.eep </p>
+<p>launchctl load /System/Library/LaunchDaemons/com.apple.CommCenter.plist</p>
+<p></code><br />
+Se voc&ecirc; receber uma mensagem do launchtcl dizendo "no process", ignore-a.<br />
+6 - Execute o AnySim<br />
+7 - Enjoy!</p>

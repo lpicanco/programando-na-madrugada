@@ -1,0 +1,114 @@
+---
+layout: post
+status: publish
+published: true
+title: Removendo a acentua&Atilde;?&Acirc;&sect;&Atilde;?&Acirc;&pound;o e os caracteres
+  especiais de uma String
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 212
+wordpress_url: http://www.luizpicanco.com/?p=212
+date: '2010-05-28 10:56:37 -0300'
+date_gmt: '2010-05-28 13:56:37 -0300'
+categories:
+- ".Net"
+- C#
+tags:
+- ".Net"
+- algoritmo
+- C#
+comments:
+- id: 422
+  author: coupons for spring valley vitamins
+  author_email: Espalin255@gmail.com
+  author_url: http://www.naileddeals.com/deals/459966/Rosewill-Mechanical-Keyboard-9000BL-with-Cherry-Black-Switch-free-shipping
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'A powerful share, I simply given this onto a colleague who was doing just
+    a little analysis on this. And he actually purchased me breakfast because I found
+    it for him.. smile. So let me reword that: Thnx for the deal with! However yeah
+    Thnkx for spending the time to debate this, I really feel strongly about it and
+    love studying more on this topic. If doable, as you turn out to be expertise,
+    would you thoughts updating your blog with more details? It is highly useful for
+    me. Big thumb up for this weblog publish! '
+- id: 423
+  author: forex growth bot,forex online,forex trading software
+  author_email: EggerErlich672@hotmail.com
+  author_url: http://forexgrowthbotx.com
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Wonderful beat ! I would like to apprentice while you amend your website,
+    how can i subscribe for a blog website? The account aided me a acceptable deal.
+    I were tiny bit acquainted of this your broadcast offered bright transparent idea '
+- id: 442
+  author: videos zorras
+  author_email: ''
+  author_url: http://www.zorrasxx.com
+  date: '2015-06-20 22:32:20 -0300'
+  date_gmt: '2015-06-21 01:32:20 -0300'
+  content: |-
+    <strong>...A Friend recommended your blog</strong>
+
+    [...]As a Newbie, I am permanently exploring online for articles that can benefit me. Thank you
+- id: 479
+  author: BITTIM SABUNU
+  author_email: ''
+  author_url: http://www.bittimsabunu.gen.tr
+  date: '2015-08-08 14:34:46 -0300'
+  date_gmt: '2015-08-08 17:34:46 -0300'
+  content: |-
+    <strong>BITTIM SABUNU</strong>
+
+    BITTIM SABUNU
+- id: 484
+  author: Dubai Escorts
+  author_email: ''
+  author_url: http://www.escortskk.com
+  date: '2015-08-25 05:17:18 -0300'
+  date_gmt: '2015-08-25 08:17:18 -0300'
+  content: |-
+    <strong>...Visitor recommendations</strong>
+
+    [...] What web host are you the usage of? Can I get affiliate hyperlink to your host? I wish web site loaded up as quickly as yours lol[...]
+---
+<p>Estava precisando remover a acentua&ccedil;&atilde;o e os caracteres especiais do nome de um arquivo. Para isso, desenvolvi um extension method para a classe String.</p>
+<p>Exemplo:<br />
+String de entrada:<br />
+<strong>Adobe Acrobat - Pacy-Paran&aacute;_05.12_&aacute;&Atilde;?&Acirc;&uml;&Atilde;?&Acirc;&macr;&Atilde;?&Acirc;&acute;&uacute;&atilde;+.pdf</strong></p>
+<p>String de retorno:<br />
+<strong>AdobeAcrobatPacyParana_05.12_aeioua.pdf</strong></p>
+<p>Desenvolvi o m&eacute;todo utilizando uma HashTable e express&atilde;o regular. Caso voc&ecirc; tenha alguma sugest&atilde;o de melhoria, poste a&iacute; nos coment&aacute;rios.</p>
+<p>Extension method:</p>
+<pre lang="csharp" line="1">
+public static String RemoveSpecialCharacters(this String self)
+{
+	var normalizedString = self;
+
+	// Prepara a tabela de s&iacute;mbolos.
+	var symbolTable = new Dictionary<char, char[]>();
+	symbolTable.Add('a', new char[] {'&Atilde;?&Acirc;&nbsp;', '&aacute;', '&Atilde;?&Acirc;&curren;', '&acirc;', '&atilde;'});
+	symbolTable.Add('c', new char[] { '&ccedil;' });
+	symbolTable.Add('e', new char[] { '&Atilde;?&Acirc;&uml;', '&eacute;', '&Atilde;?&Acirc;&laquo;', '&ecirc;' });
+	symbolTable.Add('i', new char[] { '&Atilde;?&Acirc;&not;', '&iacute;', '&Atilde;?&Acirc;&macr;', '&Atilde;?&Acirc;&reg;' });
+	symbolTable.Add('o', new char[] { '&Atilde;?&Acirc;&sup2;', '&oacute;', '&Atilde;?&Acirc;&para;', '&Atilde;?&Acirc;&acute;', '&otilde;' });
+	symbolTable.Add('u', new char[] { '&Atilde;?&Acirc;&sup1;', '&uacute;', '&Atilde;?&Acirc;&frac14;', '&Atilde;?&Acirc;&raquo;' });
+
+	// Substitui os s&iacute;mbolos.
+	foreach (var key in symbolTable.Keys)
+	{
+		foreach (var symbol in symbolTable[key])
+		{
+			normalizedString = normalizedString.Replace(symbol, key);
+		}
+	}
+			
+	// Remove os outros caracteres especiais.
+	normalizedString = Regex.Replace(normalizedString, "[^0-9a-zA-Z._]+?", "");
+	return normalizedString;
+}
+</pre>

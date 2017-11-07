@@ -1,0 +1,51 @@
+---
+layout: post
+status: publish
+published: true
+title: Recuperando uma parti&Atilde;?&Acirc;&sect;&Atilde;?&Acirc;&pound;o com problemas
+  no OSX
+author:
+  display_name: lpicanco
+  login: lpicanco
+  email: lpicanco@gmail.com
+  url: ''
+author_login: lpicanco
+author_email: lpicanco@gmail.com
+wordpress_id: 837
+wordpress_url: http://www.luizpicanco.com/?p=837
+date: '2011-05-27 21:14:32 -0300'
+date_gmt: '2011-05-28 00:14:32 -0300'
+categories:
+- MAC OSX
+tags:
+- osx
+comments:
+- id: 436
+  author: Kerrie Handcock
+  author_email: Kerrie.Tidrick@gmail.com
+  author_url: http://www.dancingwiththestarsseason2011.com
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Hi there Youve performed a fantastic job I will certainly digg it and
+    individually suggest to my friends I am confident they will be benefited from
+    this site '
+- id: 437
+  author: cigar smoker gifts
+  author_email: Vannoy138252@googlemail.com
+  author_url: http://axinternet.com/user/history/pChloeSmithh/
+  date: '1999-11-29 21:00:00 -0200'
+  date_gmt: '1999-11-30 00:00:00 -0200'
+  content: 'Hi there! I know this is kind of off topic but I was wondering if you
+    knew where I could get a captcha plugin for my comment form? I''m using the same
+    blog platform as yours and I''m having trouble finding one? Thanks a lot! '
+---
+<p>Ontem, durante uma falha de energia, meu osx n&atilde;o estava conseguindo mais montar a parti&ccedil;&atilde;o de boot. A mensagem que eu estava recebendo era a seguinte:</p>
+<p><code>failed to open/create the journal<br />
+journal is not empty<br />
+cannot mount root, errno = 19</code></p>
+<p>Ap&oacute;s uma s&eacute;rie de tentativas frustradas de recupera&ccedil;&atilde;o, consegui recuper&aacute;-la desabilitando o journal.<br />
+Ap&oacute;s bootar pelo cd do osx, v&aacute; para o terminal e entre com os seguintes comandos:</p>
+<p><code>sudo mount_hfs -j device mount_dir<br />
+sudo diskutil disableJournal mount_dir<br />
+sudo diskutil enableJournal mount_dir</code></p>
+<p>No meu caso, o device era disk0s2</p>

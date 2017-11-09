@@ -25,11 +25,11 @@ author: "Luiz Picanco"
 twitter_username: lpicanco
 github_username:  lpicanco
 
+paginate: 10 # amount of posts to show
+paginate_path: /page:num/
+
 # Build settings
-markdown: kramdown
-theme: minima
-# theme: minimal-mistakes-jekyll
-# theme: jekyll-theme-cayman-blog
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
 

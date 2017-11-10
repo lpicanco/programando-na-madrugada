@@ -14,28 +14,35 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Programando na Madrugada
-email: lpicanco@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Programação na melhor hora do dia
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.luizpicanco.com" # the base hostname & protocol for your site, e.g. http://example.com
-author: "Luiz Picanço"
+author: 
+  name: "Luiz Picanço"
+  email: lpicanco@gmail.com
 twitter_username: lpicanco
 github_username:  lpicanco
 
 paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 
+breadcrumbs: false
+
 # Build settings
 theme: minimal-mistakes-jekyll
+# minimal_mistakes_skin: "air"
 plugins:
   - jekyll-feed
   - jekyll-archives
 
 cayman-blog:
   date_format: "%b %-d, %Y"
+
+defaults:
+  # _posts
+    values:
+      read_time: true  
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

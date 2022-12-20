@@ -23,7 +23,7 @@ gem "minimal-mistakes-jekyll"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-archives", "~> 2.1.1"
-  
+  gem "jekyll-google-tag-manager", "~> 1.0.3"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -7,6 +7,7 @@ jobs:
     steps:
       - checkout
       - run: npm install firebase-tools
+      - run: bundle install
       - run: bundle exec jekyll build --verbose
       - run: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
       

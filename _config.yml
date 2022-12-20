@@ -39,8 +39,13 @@ plugins:
 cayman-blog:
   date_format: "%b %-d, %Y"
 
+include:
+  - _pages
+
 defaults:
-  # _posts
+  - scope:
+      path: ""
+      type: posts
     values:
       read_time: true  
 

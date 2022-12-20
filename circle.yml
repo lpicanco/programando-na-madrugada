@@ -6,9 +6,9 @@ jobs:
       - image: cimg/node:19.2.0
     steps:
       - checkout
-      - run: npm install -g firebase-tools
+      - run: npm install firebase-tools
       - run: bundle exec jekyll build --verbose
-      - run: firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+      - run: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
       
 workflows:
   deploy:

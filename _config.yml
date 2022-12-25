@@ -20,7 +20,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.luizpicanco.com" # the base hostname & protocol for your site, e.g. http://example.com
 author: 
   name: "Luiz Picanço"
-  email: lpicanco@gmail.com
+  email: lpicanco at gmail.com
 twitter_username: lpicanco
 github_username:  lpicanco
 
@@ -31,7 +31,7 @@ breadcrumbs: false
 
 # Build settings
 theme: minimal-mistakes-jekyll
-# minimal_mistakes_skin: "air"
+# minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-feed
   - jekyll-archives

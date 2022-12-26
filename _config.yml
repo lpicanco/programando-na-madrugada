@@ -20,7 +20,15 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.luizpicanco.com" # the base hostname & protocol for your site, e.g. http://example.com
 author: 
   name: "Luiz Picanço"
+  avatar: "https://avatars.githubusercontent.com/u/8377"
   email: lpicanco at gmail.com
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/lpicanco"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/lpicanco"
 twitter:
   username: "lpicanco"
 github_username:  lpicanco

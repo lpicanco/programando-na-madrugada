@@ -21,7 +21,8 @@ url: "https://www.luizpicanco.com" # the base hostname & protocol for your site,
 author: 
   name: "Luiz Picanço"
   email: lpicanco at gmail.com
-twitter_username: lpicanco
+twitter:
+  username: "lpicanco"
 github_username:  lpicanco
 
 paginate: 10 # amount of posts to show
@@ -38,6 +39,12 @@ plugins:
 
 cayman-blog:
   date_format: "%b %-d, %Y"
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-771530-1"
+    anonymize_ip: false
 
 include:
   - _pages

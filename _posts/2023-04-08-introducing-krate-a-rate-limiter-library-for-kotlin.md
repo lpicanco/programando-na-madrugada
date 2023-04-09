@@ -49,7 +49,7 @@ Rate limiting is a crucial aspect of any application that exposes resources over
 To get started with Krate, you can simply add it as a dependency to your Kotlin project. Here's an example of how you can add Krate to your project using Gradle:
 
 ```kotlin
-implementation("io.github.lpicanco:krate-core:1.0.1")
+implementation("io.github.lpicanco:krate-core:1.0.2")
 ```
 
 Once you've added Krate to your project, you can start using it to enforce rate limits. 

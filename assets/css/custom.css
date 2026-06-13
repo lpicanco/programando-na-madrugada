@@ -69,6 +69,23 @@
   flex-shrink: 0;
 }
 
+/* Table of contents, stacked under the author card in the same column */
+.author-sidebar__toc {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(125, 125, 125, 0.25);
+  font-size: 0.875rem;
+}
+.author-sidebar__toc-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.author-sidebar__toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* Hide the profile sidebar on narrow screens, like the rest of Hextra's columns */
 @media (max-width: 1024px) {
   .author-sidebar {

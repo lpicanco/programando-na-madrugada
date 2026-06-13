@@ -1,6 +1,7 @@
 baseURL: https://www.luizpicanco.com
 disablePathToLower: true
 locale: pt-br
+defaultContentLanguage: pt
 title: Programando na Madrugada
 
 module:
@@ -12,13 +13,13 @@ menu:
     - name: Blog
       pageRef: /blog
       weight: 1
-    - name: Projetos
+    - identifier: projects
       pageRef: /projects
       weight: 2
-    - name: Sobre
+    - identifier: about
       pageRef: /about
       weight: 3
-    - name: Search
+    - identifier: search
       weight: 4
       params:
         type: search
@@ -27,5 +28,21 @@ menu:
       url: "https://github.com/lpicanco"
       params:
         icon: github
+    - identifier: rss
+      url: "index.xml"
+      weight: 6
+      params:
+        icon: rss
+    - name: Theme
+      weight: 7
+      params:
+        type: theme-toggle
 
-copyright: "© 2006-2026 Programando na Madrugada"
+params:
+  footer:
+    displayPoweredBy: false
+    displayCopyright: true
+        
+outputs:
+  home: [html, llms]
+  section: [html, rss]

@@ -1,0 +1,31 @@
+baseURL: https://www.luizpicanco.com
+disablePathToLower: true
+locale: pt-br
+title: Programando na Madrugada
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+menu:
+  main:
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+    - name: Projetos
+      pageRef: /projects
+      weight: 2
+    - name: Sobre
+      pageRef: /about
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/lpicanco"
+      params:
+        icon: github
+
+copyright: "© 2006-2026 Programando na Madrugada"

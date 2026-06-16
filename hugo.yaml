@@ -93,3 +93,7 @@ params:
 
 outputs:
   home: [html, llms, rss]
+
+services:
+  googleAnalytics:
+    ID: G-Y2VX5W2H9Y
